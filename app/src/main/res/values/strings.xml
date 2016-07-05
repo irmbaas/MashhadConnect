@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">مشهد کانکت</string>
+    <string name="navigation_drawer_open">بازکردن</string>
+    <string name="navigation_drawer_close">بستن</string>
+    <string name="about_app">درباره برنامه</string>
+    <string name="version_name">نسخه %1$s</string>
+    <string name="mbaas_site">http://www.mbaas.ir</string>
+    <string name="powered_by_text">قدرت گرفته از:</string>
+    <string name="about_title">همایش مشهد کانکت</string>
+</resources>

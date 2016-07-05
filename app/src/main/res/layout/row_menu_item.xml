@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_nav_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@drawable/nav_selector" >
+
+    <TextView
+        android:id="@+id/tv_menuIcon"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@drawable/nav_txt_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:text="Icon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true" />
+
+    <ir.mbaas.mashhadconnect.views.MBTextView
+        android:id="@+id/tv_menuText"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@drawable/nav_txt_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:textStyle="bold"
+        android:text="Menu Name"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/tv_menuIcon" />
+
+</RelativeLayout>

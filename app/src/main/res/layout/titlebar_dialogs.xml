@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar_dialogs"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:paddingRight="15dp"
+    android:paddingEnd="15dp"
+    android:elevation="4dp" >
+
+    <ir.mbaas.mashhadconnect.views.MBTextView
+        android:id="@+id/tv_dialogs_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="right" />
+
+</android.support.v7.widget.Toolbar>
