@@ -178,14 +178,9 @@ public class MainActivity extends AppCompatActivity {
     public AppMenus getAppMenus() {
         List<AppMenu> menus = new ArrayList<>();
 
-        menus.add(new AppMenu(this,
-                R.string.action_mbaas_rss, R.string.action_mbaas_icon));
-        menus.add(new AppMenu(this,
-                R.string.action_about_text, R.string.action_about_icon));
+        menus.add(new AppMenu(this, R.string.action_mbaas_rss, R.string.action_mbaas_icon));
         menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
-        menus.add(new AppMenu(this,
-                R.string.action_help_text, R.string.action_help_icon));
-
+        menus.add(new AppMenu(this, R.string.action_about_text, R.string.action_about_icon));
         return new AppMenus(menus);
     }
 

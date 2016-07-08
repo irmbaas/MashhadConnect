@@ -51,8 +51,6 @@ public class RssFragment extends Fragment implements IRssCallback {
 
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
-                LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(
