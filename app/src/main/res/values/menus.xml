@@ -4,4 +4,6 @@
     <string name="action_about_icon">\uf315</string>
     <string name="action_help_text">راهنما</string>
     <string name="action_help_icon">\uf64f</string>
+    <string name="action_mbaas_rss">اخبار MBaaS</string>
+    <string name="action_mbaas_icon">\uf64f</string>
 </resources>

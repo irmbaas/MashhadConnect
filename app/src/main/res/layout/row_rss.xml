@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:padding="10dp"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <ir.mbaas.mashhadconnect.views.MBTextView
+        android:id="@+id/tv_title"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textDirection="rtl"
+        android:gravity="right"
+        android:text="Title"/>
+
+    <ir.mbaas.mashhadconnect.views.MBTextView
+        android:id="@+id/tv_desc"
+        android:layout_below="@id/tv_title"
+        android:layout_toLeftOf="@+id/circleView"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textDirection="rtl"
+        android:gravity="right"
+        android:text="Description"/>
+
+    <ir.mbaas.mashhadconnect.views.MBTextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content"
+        android:text="2016"/>
+
+</RelativeLayout>

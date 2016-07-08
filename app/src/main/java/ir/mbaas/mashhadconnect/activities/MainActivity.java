@@ -3,6 +3,8 @@ package ir.mbaas.mashhadconnect.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,6 +23,7 @@ import java.util.List;
 
 import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.adapters.NavigationAdapter;
+import ir.mbaas.mashhadconnect.fragments.RssFragment;
 import ir.mbaas.mashhadconnect.helpers.ActionBarRtlizer;
 import ir.mbaas.mashhadconnect.helpers.RtlizeEverything;
 import ir.mbaas.mashhadconnect.listeners.ClickListener;
@@ -103,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                                     startActivity(intent);
                                     break;
+                                case R.string.action_mbaas_rss:
+                                    FragmentManager fm = getSupportFragmentManager();
+                                    FragmentTransaction ft = fm.beginTransaction();
+                                    ft.replace(R.id.fl_contents, new RssFragment());
+
+                                    ft.commit();
+                                    break;
                             }
 
                             Drawer.closeDrawers();
@@ -168,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
     public AppMenus getAppMenus() {
         List<AppMenu> menus = new ArrayList<>();
 
+        menus.add(new AppMenu(this,
+                R.string.action_mbaas_rss, R.string.action_mbaas_icon));
         menus.add(new AppMenu(this,
                 R.string.action_about_text, R.string.action_about_icon));
         menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));

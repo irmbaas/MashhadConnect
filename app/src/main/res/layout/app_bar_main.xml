@@ -18,7 +18,7 @@
         </include>
 
         <FrameLayout
-            android:id="@+id/fl_last_chats"
+            android:id="@+id/fl_contents"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
