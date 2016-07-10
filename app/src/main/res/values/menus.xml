@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="action_intro_text">معرفی</string>
+    <string name="action_intro_icon">\uf315</string>
     <string name="action_about_text">درباره ما</string>
     <string name="action_about_icon">\uf315</string>
     <string name="action_help_text">راهنما</string>

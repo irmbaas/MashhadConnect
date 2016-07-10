@@ -23,6 +23,7 @@ import java.util.List;
 
 import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.adapters.NavigationAdapter;
+import ir.mbaas.mashhadconnect.fragments.IntroductionFragment;
 import ir.mbaas.mashhadconnect.fragments.RssFragment;
 import ir.mbaas.mashhadconnect.helpers.ActionBarRtlizer;
 import ir.mbaas.mashhadconnect.helpers.RtlizeEverything;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         initFAB();
         initNavigationDrawer();
+        createIntroFragment();
     }
 
     private void initNavigationDrawer() {
@@ -102,16 +104,11 @@ public class MainActivity extends AppCompatActivity {
                                 return;
 
                             switch (appMenu.getResTitle()) {
-                                case R.string.action_about_text:
-                                    Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                                    startActivity(intent);
+                                case R.string.action_intro_text:
+                                    createIntroFragment();
                                     break;
                                 case R.string.action_mbaas_rss:
-                                    FragmentManager fm = getSupportFragmentManager();
-                                    FragmentTransaction ft = fm.beginTransaction();
-                                    ft.replace(R.id.fl_contents, new RssFragment());
-
-                                    ft.commit();
+                                    createRssFragment();
                                     break;
                             }
 
@@ -178,9 +175,9 @@ public class MainActivity extends AppCompatActivity {
     public AppMenus getAppMenus() {
         List<AppMenu> menus = new ArrayList<>();
 
-        menus.add(new AppMenu(this, R.string.action_mbaas_rss, R.string.action_mbaas_icon));
+        menus.add(new AppMenu(this, R.string.action_intro_text, R.string.action_intro_icon));
         menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
-        menus.add(new AppMenu(this, R.string.action_about_text, R.string.action_about_icon));
+        menus.add(new AppMenu(this, R.string.action_mbaas_rss, R.string.action_mbaas_icon));
         return new AppMenus(menus);
     }
 
@@ -194,5 +191,19 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void createIntroFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fl_contents, new IntroductionFragment());
+        ft.commit();
+    }
+
+    private void createRssFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fl_contents, new RssFragment());
+        ft.commit();
     }
 }
