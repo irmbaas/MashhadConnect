@@ -11,41 +11,40 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.adapters.RssAdapter;
-import ir.mbaas.mashhadconnect.apis.IRssCallback;
-import ir.mbaas.mashhadconnect.apis.RequestRss;
+import ir.mbaas.mashhadconnect.adapters.SubjectsAdapter;
 import ir.mbaas.mashhadconnect.listeners.ClickListener;
 import ir.mbaas.mashhadconnect.listeners.RecyclerTouchListener;
 import ir.mbaas.mashhadconnect.models.RssFeed;
-import ir.mbaas.mashhadconnect.views.DividerItemDecoration;
+import ir.mbaas.mashhadconnect.models.Subject;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RssFragment extends Fragment implements IRssCallback {
+public class SubjectsFragment extends Fragment {
 
-    private List<RssFeed> rssFeeds = new ArrayList<>();
+    private List<Subject> subjects = new ArrayList<>();
 
     private RecyclerView recyclerView;
-    private RssAdapter mAdapter;
+    private SubjectsAdapter mAdapter;
 
-    public RssFragment() {
+    public SubjectsFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_rss, container, false);
+        View view = inflater.inflate(R.layout.fragment_subjects, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.rv_contents);
+        recyclerView = (RecyclerView) view.findViewById(R.id.rv_subjects);
 
-        mAdapter = new RssAdapter(rssFeeds);
+        initializeSubjects();
         RecyclerView.LayoutManager mLayoutManager =
                 new LinearLayoutManager(getActivity().getApplicationContext());
 
@@ -64,29 +63,22 @@ public class RssFragment extends Fragment implements IRssCallback {
             }
         }));
 
-        RequestRss requestRss = new RequestRss(getActivity(), "http://blog.mashhadconnect.ir/feed/",
-                this);
-        requestRss.execute();
-
         return view;
     }
 
-    @Override
-    public void onSuccess(List<RssFeed> feeds) {
-        if (feeds == null)
-            return;
+    private void initializeSubjects() {
+        Subject subject = new Subject(R.string.subject1_title, R.string.subject1_description,
+                R.string.subject1_lecturer, R.drawable.big_data);
+        subjects.add(subject);
 
-        rssFeeds.clear();
+        subject = new Subject(R.string.subject2_title, R.string.subject2_description,
+                R.string.subject2_lecturer, R.drawable.ci);
+        subjects.add(subject);
 
-        for (RssFeed rssFeed : feeds) {
-            rssFeeds.add(rssFeed);
-        }
-
-        mAdapter.notifyDataSetChanged();
+        subject = new Subject(R.string.subject3_title, R.string.subject3_description,
+                R.string.subject3_lecturer, R.drawable.iot);
+        subjects.add(subject);
+        mAdapter = new SubjectsAdapter(subjects);
     }
 
-    @Override
-    public void onError() {
-
-    }
 }

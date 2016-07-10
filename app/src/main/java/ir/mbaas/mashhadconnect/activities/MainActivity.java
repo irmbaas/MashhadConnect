@@ -25,6 +25,7 @@ import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.adapters.NavigationAdapter;
 import ir.mbaas.mashhadconnect.fragments.IntroductionFragment;
 import ir.mbaas.mashhadconnect.fragments.RssFragment;
+import ir.mbaas.mashhadconnect.fragments.SubjectsFragment;
 import ir.mbaas.mashhadconnect.helpers.ActionBarRtlizer;
 import ir.mbaas.mashhadconnect.helpers.RtlizeEverything;
 import ir.mbaas.mashhadconnect.listeners.ClickListener;
@@ -107,8 +108,11 @@ public class MainActivity extends AppCompatActivity {
                                 case R.string.action_intro_text:
                                     createIntroFragment();
                                     break;
-                                case R.string.action_mbaas_rss:
+                                case R.string.action_connect_rss:
                                     createRssFragment();
+                                    break;
+                                case R.string.action_subjects_text:
+                                    createSubjectsFragment();
                                     break;
                             }
 
@@ -176,8 +180,9 @@ public class MainActivity extends AppCompatActivity {
         List<AppMenu> menus = new ArrayList<>();
 
         menus.add(new AppMenu(this, R.string.action_intro_text, R.string.action_intro_icon));
-        menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
-        menus.add(new AppMenu(this, R.string.action_mbaas_rss, R.string.action_mbaas_icon));
+        menus.add(new AppMenu(this, R.string.action_subjects_text, R.string.action_subjects_icon));
+        //menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
+        menus.add(new AppMenu(this, R.string.action_connect_rss, R.string.action_connect_icon));
         return new AppMenus(menus);
     }
 
@@ -204,6 +209,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fl_contents, new RssFragment());
+        ft.commit();
+    }
+
+    private void createSubjectsFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fl_contents, new SubjectsFragment());
         ft.commit();
     }
 }

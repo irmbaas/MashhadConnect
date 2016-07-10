@@ -2,10 +2,12 @@
 <resources>
     <string name="action_intro_text">معرفی</string>
     <string name="action_intro_icon">\uf315</string>
+    <string name="action_subjects_text">سخنرانی‌ها</string>
+    <string name="action_subjects_icon">\uf315</string>
     <string name="action_about_text">درباره ما</string>
     <string name="action_about_icon">\uf315</string>
     <string name="action_help_text">راهنما</string>
     <string name="action_help_icon">\uf64f</string>
-    <string name="action_mbaas_rss">اخبار MBaaS</string>
-    <string name="action_mbaas_icon">\uf17b</string>
+    <string name="action_connect_rss">اخبار</string>
+    <string name="action_connect_icon">\uf17b</string>
 </resources>

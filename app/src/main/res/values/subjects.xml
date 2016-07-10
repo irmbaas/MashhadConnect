@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="subject1_title">کلان داده و NoSql</string>
+    <string name="subject1_lecturer">علی زاهدی</string>
+    <string name="subject1_description"><![CDATA[<p>اریک اشمیت جایی گفته است: \"امروزه در هر دو روز، بشر به اندازه کل دوران تمدن بشری تا سال ۲۰۰۳ اطلاعات تولید می کند!\" در این ارائه پس از نگاهی مختصر به داده ها، Big Data ها را تعریف میکنیم، و این که اصلا در دنیای امروز Big Data ها به چه چیز هایی گفته می شوند ؟ چالش های مدیریت این نوع داده ها را بررسی می کنیم نحوه پیدایش NoSQL ها را توضیح میدیم و با انواع دیتابیس های این شاخه آشنا میشیم و کاربرد هر کدوم و بررسی می کنیم و ...</p>]]></string>
+    <string name="subject2_title">یک‌پارچه‌ سازی مداوم و Travic CI</string>
+    <string name="subject2_lecturer">مرتضی حسینی</string>
+    <string name="subject2_description"><![CDATA[<p>یکپارچه‌سازی مداوم (CI) در برنامه‌نویسی به مجموعه روش‌هایی که باعث حفظ انسجام کد می‌شود و از به‌هم‌ریختگی کد جلوگیری می‌کند. این روش‌ها مبتنی بر build کردن مداوم پروژه پس از هر تغییر در کد توسط برنامه‌نویسان و اجرای تست کیس‌های برنامه است. در این ارائه CI و Travis CI را بررسی می‌کنیم</p>]]></string>
+    <string name="subject3_title">اینترنت اشیاء</string>
+    <string name="subject3_lecturer">حیدر الهی</string>
+
+</resources>
