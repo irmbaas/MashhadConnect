@@ -815,16 +815,17 @@ public class JalaliCalendar extends Calendar {
             this.day = day;
         }
 
+        //getMonth() + 1 : Month started from 0
         public String toString(String delimiter) {
-            return getYear() + delimiter + getMonth() + delimiter + getDay();
+            return getYear() + delimiter + (getMonth() + 1) + delimiter + getDay();
         }
 
         public String toString() {
-            return getYear() + "/" + getMonth() + "/" + getDay();
+            return getYear() + "/" + (getMonth() + 1) + "/" + getDay();
         }
 
         public String toStringMonthAndDay() {
-            return getMonth() + "/" + getDay();
+            return (getMonth() + 1) + "/" + getDay();
         }
     }
 }

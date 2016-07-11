@@ -114,7 +114,7 @@ public class RequestRss extends BaseAsyncRequest {
 
             int eventType = xpp.getEventType();
             RssFeed rssFeed = null;
-            SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, DD MMM yyyy HH:mm:ss");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_DOCUMENT) {
 
