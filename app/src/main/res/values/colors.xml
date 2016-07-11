@@ -9,7 +9,7 @@
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorDivider">#B6B6B6</color>
 
-    <color name="colorPressed">#FFCCBC</color>
+    <color name="colorPressed">#B6B6B6</color>
     <color name="colorMenuText">#212121</color>
     <color name="colorAboutText">#2D2D2D</color>
 </resources>

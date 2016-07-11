@@ -64,11 +64,13 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Vi
         }
     }
 
-    public NavigationAdapter(AppMenus appMenus,String Name,String Email, String Avatar){
+    public NavigationAdapter(AppMenus appMenus,String Name,String Email, String Avatar,
+                             int selectedItem){
         this.appMenus = appMenus;
         name   = Name;
         email  = Email;
         avatar = Avatar;
+        this.selected_item = selectedItem;
     }
 
     @Override
@@ -133,5 +135,13 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.Vi
 
     private boolean isDivider(int position) {
         return appMenus.menus.get(position - 1).type == AppMenus.MenuType.DIVIDER;
+    }
+
+    public void setSelectedItem(int pos) {
+        selected_item = pos;
+    }
+
+    public int getSelectedItem() {
+        return selected_item;
     }
 }

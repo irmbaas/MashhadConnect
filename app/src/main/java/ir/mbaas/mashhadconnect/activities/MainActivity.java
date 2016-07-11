@@ -36,6 +36,7 @@ import ir.mbaas.mashhadconnect.models.AppMenus;
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
+    private String SELECTED_ITEM = "selected_item";
 
     Toolbar toolbar;
     RecyclerView mRecyclerView;
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     AppMenus appMenus;
 
     ActionBarDrawerToggle mDrawerToggle;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,21 +56,29 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        context = this;
+        getSupportActionBar().setTitle("");
 
-        initFAB();
-        initNavigationDrawer();
-        createIntroFragment();
+        if(savedInstanceState == null){
+            createIntroFragment();
+        }
+
+        initNavigationDrawer(savedInstanceState != null ? savedInstanceState.getInt(SELECTED_ITEM) : 1);
     }
 
-    private void initNavigationDrawer() {
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SELECTED_ITEM, mAdapter.getSelectedItem());
+    }
+
+    private void initNavigationDrawer(int selectedMenu) {
         appMenus = getAppMenus();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
 
         mRecyclerView.setHasFixedSize(true);
 
-        mAdapter = new NavigationAdapter(appMenus, "MBaaS", "info@mbaas.ir", "");
+        mAdapter = new NavigationAdapter(appMenus, "MBaaS", "info@mbaas.ir", "", selectedMenu);
 
         mRecyclerView.setAdapter(mAdapter);
 
@@ -100,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view, int position) {
                         if(position > 0 && appMenus != null && appMenus.menus != null) {
                             AppMenu appMenu = appMenus.menus.get(position - 1);
+                            mAdapter.setSelectedItem(position);
 
                             if(appMenu == null || appMenu.type == AppMenus.MenuType.DIVIDER)
                                 return;
@@ -117,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             Drawer.closeDrawers();
+                            mAdapter.notifyDataSetChanged();
                         }
                     }
 
@@ -136,17 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Drawer.openDrawer(GravityCompat.END);
                 }
-            }
-        });
-    }
-
-    private void initFAB() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
             }
         });
     }
