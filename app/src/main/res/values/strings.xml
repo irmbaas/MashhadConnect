@@ -14,4 +14,8 @@
     <string name="loading">در حال بارگزاری ...</string>
     <string name="no_timetable_to_show">هیچ زمان‌بندی جهت نمایش وجود ندارد.</string>
     <string name="no_rss_to_show">خبری جهت نمایش وجود ندارد!</string>
+    <string name="website">وب سایت</string>
+    <string name="news">اخبار</string>
+    <string name="download_source_code">شما می توانید کد این برنامه را از آدرس زیر دانلود کنید:</string>
+    <string name="download_source_url">https://github.com/irmbaas/MashhadConnect</string>
 </resources>

@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import ir.mbaas.mashhadconnect.MyApplication;
 import ir.mbaas.mashhadconnect.R;
@@ -29,6 +30,19 @@ public class AboutActivity extends AppCompatActivity {
         MBTextView tvVersionName = (MBTextView) findViewById(R.id.tv_version_name);
         tvVersionName.setText(String.format(getResources().getString(R.string.version_name),
                         MyApplication.versionName));
+
+        TextView tvDownloadSrc = (TextView) findViewById(R.id.tv_source_url);
+        final String downloadUrlStr = getResources().getString(R.string.download_source_url);
+
+        tvDownloadSrc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (downloadUrlStr == null || downloadUrlStr.isEmpty())
+                    return;
+
+                StaticMethods.openBrowser(AboutActivity.this, downloadUrlStr);
+            }
+        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

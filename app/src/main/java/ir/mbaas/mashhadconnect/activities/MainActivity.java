@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavigationDrawer(int selectedMenu) {
         appMenus = getAppMenus();
-        tvTitle.setText(appMenus.menus.get(selectedMenu - 1).title);
+
+        if(selectedMenu != 1)
+            tvTitle.setText(appMenus.menus.get(selectedMenu - 1).title);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
 
@@ -127,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                                     tvTitle.setText(R.string.app_name);
                                     break;
                                 case R.string.action_connect_rss:
-                                    createRssFragment();
+                                    createRssFragment("http://blog.mashhadconnect.ir/feed/");
                                     tvTitle.setText(R.string.action_connect_rss);
                                     break;
                                 case R.string.action_subjects_text:
@@ -225,7 +227,8 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void createRssFragment() {
+    public void createRssFragment(String rssUrl) {
+        RssFragment.rssUrl = rssUrl;
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fl_contents, new RssFragment());

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ir.mbaas.mashhadconnect.R;
+import ir.mbaas.mashhadconnect.activities.MainActivity;
 import ir.mbaas.mashhadconnect.adapters.SponsorsAdapter;
 import ir.mbaas.mashhadconnect.listeners.ClickListener;
 import ir.mbaas.mashhadconnect.listeners.RecyclerTouchListener;
@@ -28,6 +29,7 @@ public class SponsorsFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private SponsorsAdapter mAdapter;
+    private MainActivity mainActivity;
 
     public SponsorsFragment() {
         // Required empty public constructor
@@ -39,6 +41,7 @@ public class SponsorsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sponsors, container, false);
 
+        mainActivity = (MainActivity) getActivity();
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_sponsors);
 
         initializeSponsors();
@@ -75,6 +78,6 @@ public class SponsorsFragment extends Fragment {
         sponsor = new Sponsor(R.string.sponsor3_title, R.string.sponsor3_description,
                 R.drawable.erfan, R.string.sponsor3_url, R.string.sponsor3_rss);
         sponsors.add(sponsor);
-        mAdapter = new SponsorsAdapter(sponsors);
+        mAdapter = new SponsorsAdapter(sponsors, mainActivity);
     }
 }

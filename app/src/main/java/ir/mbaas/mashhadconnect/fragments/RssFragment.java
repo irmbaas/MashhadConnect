@@ -35,6 +35,8 @@ public class RssFragment extends Fragment implements IRssCallback {
     private RssAdapter mAdapter;
     private TextView tvNoRss;
 
+    public static String rssUrl;
+
     public RssFragment() {
         // Required empty public constructor
     }
@@ -67,8 +69,7 @@ public class RssFragment extends Fragment implements IRssCallback {
             }
         }));
 
-        RequestRss requestRss = new RequestRss(getActivity(), "http://blog.mashhadconnect.ir/feed/",
-                this);
+        RequestRss requestRss = new RequestRss(getActivity(), rssUrl, this);
         requestRss.execute();
 
         return view;

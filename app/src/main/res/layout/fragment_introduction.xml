@@ -16,6 +16,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/connect_introduction_title" />
 

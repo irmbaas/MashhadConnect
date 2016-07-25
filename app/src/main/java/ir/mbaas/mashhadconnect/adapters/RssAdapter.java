@@ -45,12 +45,22 @@ public class RssAdapter extends RecyclerView.Adapter<RssAdapter.RssHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RssHolder holder, int position) {
-        RssFeed rssFeed = rssFeeds.get(position);
+    public void onBindViewHolder(final RssHolder holder, int position) {
+        final RssFeed rssFeed = rssFeeds.get(position);
 
         holder.title.setText(rssFeed.title);
         holder.description.setText(Html.fromHtml(rssFeed.description));
         holder.date.setText(StaticMethods.formatDatetime(rssFeed.pubDate));
+
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(rssFeed.link == null || rssFeed.link.isEmpty())
+                    return;
+
+                StaticMethods.openBrowser(holder.itemView.getContext(), rssFeed.link);
+            }
+        });
     }
 
     @Override

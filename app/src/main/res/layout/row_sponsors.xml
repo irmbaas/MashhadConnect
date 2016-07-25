@@ -27,6 +27,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textDirection="rtl"
                 android:gravity="right"
@@ -42,11 +43,41 @@
                 android:gravity="right"
                 android:text="Description"/>
 
+            <LinearLayout
+                android:id="@+id/ll_btns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_desc"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/colorTextIcons"/>
+
+                <Button
+                    android:id="@+id/btn_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/website"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/colorTextIcons" />
+            </LinearLayout>
+
             <ImageView
                 android:id="@+id/iv_logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_desc"
+                android:layout_below="@id/ll_btns"
                 android:src="@drawable/big_data"
                 android:scaleType="centerInside"
                 android:adjustViewBounds="true"/>

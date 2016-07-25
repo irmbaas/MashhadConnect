@@ -30,6 +30,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textDirection="rtl"
                 android:gravity="right"
@@ -83,6 +84,7 @@
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
                 android:layout_gravity="center_horizontal"
                 android:text=""/>
 
@@ -90,6 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/colorPrimary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold"
                 android:text="@string/ta_word"/>
@@ -99,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/colorPrimary"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textStyle="bold"
                 android:text=""/>

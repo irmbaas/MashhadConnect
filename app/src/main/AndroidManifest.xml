@@ -37,7 +37,7 @@
 
         <meta-data
             android:name="ir.mbaas.sdk.token"
-            android:value="fd7f93c9_967440107484" />
+            android:value="5cb0655a_967440107484" />
     </application>
 
 </manifest>
