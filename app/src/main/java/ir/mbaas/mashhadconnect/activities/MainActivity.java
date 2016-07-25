@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.adapters.NavigationAdapter;
 import ir.mbaas.mashhadconnect.fragments.IntroductionFragment;
 import ir.mbaas.mashhadconnect.fragments.RssFragment;
+import ir.mbaas.mashhadconnect.fragments.SponsorsFragment;
 import ir.mbaas.mashhadconnect.fragments.SubjectsFragment;
 import ir.mbaas.mashhadconnect.helpers.ActionBarRtlizer;
 import ir.mbaas.mashhadconnect.helpers.RtlizeEverything;
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     ActionBarRtlizer rtlizer;
     AppMenus appMenus;
 
+    TextView tvTitle;
+
     ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle("");
+
+        tvTitle = (TextView) findViewById(R.id.tv_dialogs_title);
 
         if(savedInstanceState == null){
             createIntroFragment();
@@ -116,12 +122,19 @@ public class MainActivity extends AppCompatActivity {
                             switch (appMenu.getResTitle()) {
                                 case R.string.action_intro_text:
                                     createIntroFragment();
+                                    tvTitle.setText(R.string.app_name);
                                     break;
                                 case R.string.action_connect_rss:
                                     createRssFragment();
+                                    tvTitle.setText(R.string.action_connect_rss);
                                     break;
                                 case R.string.action_subjects_text:
                                     createSubjectsFragment();
+                                    tvTitle.setText(R.string.action_subjects_text);
+                                    break;
+                                case R.string.action_sponsors:
+                                    createSponsorsFragment();
+                                    tvTitle.setText(R.string.action_sponsors);
                                     break;
                             }
 
@@ -180,8 +193,9 @@ public class MainActivity extends AppCompatActivity {
 
         menus.add(new AppMenu(this, R.string.action_intro_text, R.string.action_intro_icon));
         menus.add(new AppMenu(this, R.string.action_subjects_text, R.string.action_subjects_icon));
-        //menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
         menus.add(new AppMenu(this, R.string.action_connect_rss, R.string.action_connect_icon));
+        menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
+        menus.add(new AppMenu(this, R.string.action_sponsors, R.string.action_sponsors_icon));
         return new AppMenus(menus);
     }
 
@@ -215,6 +229,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fl_contents, new SubjectsFragment());
+        ft.commit();
+    }
+
+    private void createSponsorsFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fl_contents, new SponsorsFragment());
         ft.commit();
     }
 }

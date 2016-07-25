@@ -10,4 +10,6 @@
     <string name="action_help_icon">\uf64f</string>
     <string name="action_connect_rss">اخبار</string>
     <string name="action_connect_icon">\uf17b</string>
+    <string name="action_sponsors">حامیان</string>
+    <string name="action_sponsors_icon">\uf4e7</string>
 </resources>

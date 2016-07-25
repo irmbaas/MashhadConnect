@@ -9,9 +9,6 @@ import android.net.Uri;
 import android.view.Display;
 import android.view.WindowManager;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
