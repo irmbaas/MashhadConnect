@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.models.Subject;
 
@@ -24,6 +25,7 @@ public class SubjectsAdapter extends RecyclerView.Adapter<SubjectsAdapter.Subjec
     public class SubjectHolder extends RecyclerView.ViewHolder {
         public TextView title, lecturer, description;
         public ImageView poster;
+        public CircleImageView lecturerImg;
 
         public SubjectHolder(View view) {
             super(view);
@@ -31,6 +33,7 @@ public class SubjectsAdapter extends RecyclerView.Adapter<SubjectsAdapter.Subjec
             description = (TextView) view.findViewById(R.id.tv_desc);
             lecturer = (TextView) view.findViewById(R.id.tv_lecturer);
             poster = (ImageView) view.findViewById(R.id.iv_poster);
+            lecturerImg = (CircleImageView) view.findViewById(R.id.civ_lecturer);
         }
     }
 
@@ -55,6 +58,7 @@ public class SubjectsAdapter extends RecyclerView.Adapter<SubjectsAdapter.Subjec
                 .getString(subject.description)));
         holder.lecturer.setText(subject.lecturer);
         holder.poster.setImageResource(subject.image);
+        holder.lecturerImg.setImageResource(subject.lecturerImg);
     }
 
     @Override

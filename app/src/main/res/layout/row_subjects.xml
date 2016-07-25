@@ -32,15 +32,28 @@
                 android:gravity="right"
                 android:text="Title"/>
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/tv_title"
+                android:id="@+id/civ_lecturer"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
             <ir.mbaas.mashhadconnect.views.MBTextView
                 android:id="@+id/tv_lecturer"
+                android:layout_toLeftOf="@id/civ_lecturer"
                 android:layout_below="@id/tv_title"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:textDirection="rtl"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="right"
+                android:gravity="right|center_vertical"
                 android:text="Lecturer"/>
 
             <ir.mbaas.mashhadconnect.views.MBTextView

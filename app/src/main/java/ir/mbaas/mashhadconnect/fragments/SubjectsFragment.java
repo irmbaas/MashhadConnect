@@ -68,15 +68,15 @@ public class SubjectsFragment extends Fragment {
 
     private void initializeSubjects() {
         Subject subject = new Subject(R.string.subject1_title, R.string.subject1_description,
-                R.string.subject1_lecturer, R.drawable.big_data);
+                R.string.subject1_lecturer, R.drawable.big_data, R.drawable.az);
         subjects.add(subject);
 
         subject = new Subject(R.string.subject2_title, R.string.subject2_description,
-                R.string.subject2_lecturer, R.drawable.ci);
+                R.string.subject2_lecturer, R.drawable.ci, R.drawable.mh);
         subjects.add(subject);
 
         subject = new Subject(R.string.subject3_title, R.string.subject3_description,
-                R.string.subject3_lecturer, R.drawable.iot);
+                R.string.subject3_lecturer, R.drawable.iot, R.drawable.he);
         subjects.add(subject);
         mAdapter = new SubjectsAdapter(subjects);
     }

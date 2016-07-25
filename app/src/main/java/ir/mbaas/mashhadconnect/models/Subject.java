@@ -10,12 +10,14 @@ public class Subject {
     public int title;
     public int description;
     public int lecturer;
+    public int lecturerImg;
     public int image;
 
-    public Subject(int title, int description, int lecturer, int image) {
+    public Subject(int title, int description, int lecturer, int image, int lecturerImg) {
         this.title = title;
         this.description = description;
         this.image = image;
         this.lecturer = lecturer;
+        this.lecturerImg = lecturerImg;
     }
 }
