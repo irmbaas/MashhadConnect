@@ -1,13 +1,26 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ir.mbaas.mashhadconnect.fragments.TimetableFragment">
 
+    <ir.mbaas.mashhadconnect.views.MBTextView
+        android:id="@+id/tv_no_timeTable"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="visible"
+        android:text="@string/loading"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_timetable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:scrollbars="vertical" />
 
-</FrameLayout>
+</RelativeLayout>

@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,6 +33,7 @@ public class RssFragment extends Fragment implements IRssCallback {
 
     private RecyclerView recyclerView;
     private RssAdapter mAdapter;
+    private TextView tvNoRss;
 
     public RssFragment() {
         // Required empty public constructor
@@ -43,6 +45,7 @@ public class RssFragment extends Fragment implements IRssCallback {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_rss, container, false);
 
+        tvNoRss = (TextView) view.findViewById(R.id.tv_no_rss);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_contents);
 
         mAdapter = new RssAdapter(rssFeeds);
@@ -82,11 +85,17 @@ public class RssFragment extends Fragment implements IRssCallback {
             rssFeeds.add(rssFeed);
         }
 
-        mAdapter.notifyDataSetChanged();
+        if (feeds.size() > 0) {
+            recyclerView.setVisibility(View.VISIBLE);
+            tvNoRss.setVisibility(View.GONE);
+            mAdapter.notifyDataSetChanged();
+        } else {
+            tvNoRss.setText(R.string.no_rss_to_show);
+        }
     }
 
     @Override
     public void onError() {
-
+        tvNoRss.setText(R.string.no_rss_to_show);
     }
 }

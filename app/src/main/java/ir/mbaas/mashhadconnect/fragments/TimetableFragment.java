@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import ir.mbaas.mashhadconnect.R;
 import ir.mbaas.mashhadconnect.adapters.TimetableAdapter;
@@ -23,6 +24,7 @@ import ir.mbaas.mashhadconnect.models.Timetables;
 public class TimetableFragment extends Fragment implements ICallback {
     private Timetables timetables;
 
+    private TextView tvNoTimeTable;
     private RecyclerView recyclerView;
     private TimetableAdapter mAdapter;
 
@@ -36,6 +38,8 @@ public class TimetableFragment extends Fragment implements ICallback {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_timetable, container, false);
         new TimetableFile(getActivity(), R.raw.timetable, this).execute();
+
+        tvNoTimeTable = (TextView) view.findViewById(R.id.tv_no_timeTable);
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_timetable);
         RecyclerView.LayoutManager mLayoutManager =
                 new LinearLayoutManager(getActivity().getApplicationContext());
@@ -60,11 +64,17 @@ public class TimetableFragment extends Fragment implements ICallback {
             this.timetables.records.add(timetable);
         }
 
-        mAdapter.notifyDataSetChanged();
+        if (timetables.records.size() > 0) {
+            recyclerView.setVisibility(View.VISIBLE);
+            tvNoTimeTable.setVisibility(View.GONE);
+            mAdapter.notifyDataSetChanged();
+        } else {
+            tvNoTimeTable.setText(R.string.no_timetable_to_show);
+        }
     }
 
     @Override
     public void onError() {
-
+        tvNoTimeTable.setText(R.string.no_timetable_to_show);
     }
 }

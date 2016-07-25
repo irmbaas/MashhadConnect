@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import ir.mbaas.mashhadconnect.R;
@@ -24,15 +26,15 @@ public class TimetableAdapter extends RecyclerView.Adapter<TimetableAdapter.Time
     private List<Timetable> timetables;
 
     public class TimetableHolder extends RecyclerView.ViewHolder {
-        public TextView title, description, lecturer;
-        public ImageView lecturerImg;
+        public TextView title, description, lecturer, beginTtime, endTime;
 
         public TimetableHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.tv_title);
             description = (TextView) view.findViewById(R.id.tv_desc);
-            lecturerImg = (ImageView) view.findViewById(R.id.civ_lecturer);
             lecturer = (TextView) view.findViewById(R.id.tv_lecturer);
+            beginTtime = (TextView) view.findViewById(R.id.tv_begin_time);
+            endTime = (TextView) view.findViewById(R.id.tv_end_time);
         }
     }
 
@@ -51,17 +53,17 @@ public class TimetableAdapter extends RecyclerView.Adapter<TimetableAdapter.Time
     @Override
     public void onBindViewHolder(TimetableHolder holder, int position) {
         Timetable timetable = timetables.get(position);
+        Format formatter = new SimpleDateFormat("HH:mm");
 
         holder.title.setText(timetable.title);
         holder.description.setText(timetable.description);
-
-        if (timetable.lecturerImage == null || timetable.lecturerImage.isEmpty()) {
-            holder.lecturerImg.setVisibility(View.GONE);
-        }
+        holder.beginTtime.setText(formatter.format(timetable.beginTime));
+        holder.endTime.setText(formatter.format(timetable.endTime));
 
         if (timetable.lecturer == null || timetable.lecturer.isEmpty()) {
             holder.lecturer.setVisibility(View.GONE);
         } else {
+            holder.lecturer.setVisibility(View.VISIBLE);
             holder.lecturer.setText(timetable.lecturer);
         }
     }

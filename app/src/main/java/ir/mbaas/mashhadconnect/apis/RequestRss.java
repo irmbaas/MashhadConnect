@@ -96,9 +96,13 @@ public class RequestRss extends BaseAsyncRequest {
 
     @Override
     protected void onCompletion(boolean success) {
-        if(success){
-            if (ic != null)
-                ic.onSuccess(rssFeeds);
+        if (ic == null)
+            return;
+
+        if (success) {
+            ic.onSuccess(rssFeeds);
+        } else {
+            ic.onError();
         }
     }
 
