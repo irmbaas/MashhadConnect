@@ -28,6 +28,7 @@ import ir.mbaas.mashhadconnect.fragments.IntroductionFragment;
 import ir.mbaas.mashhadconnect.fragments.RssFragment;
 import ir.mbaas.mashhadconnect.fragments.SponsorsFragment;
 import ir.mbaas.mashhadconnect.fragments.SubjectsFragment;
+import ir.mbaas.mashhadconnect.fragments.TimetableFragment;
 import ir.mbaas.mashhadconnect.helpers.ActionBarRtlizer;
 import ir.mbaas.mashhadconnect.helpers.RtlizeEverything;
 import ir.mbaas.mashhadconnect.listeners.ClickListener;
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initNavigationDrawer(int selectedMenu) {
         appMenus = getAppMenus();
+        tvTitle.setText(appMenus.menus.get(selectedMenu - 1).title);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
 
@@ -135,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
                                 case R.string.action_sponsors:
                                     createSponsorsFragment();
                                     tvTitle.setText(R.string.action_sponsors);
+                                    break;
+                                case R.string.action_timetable:
+                                    createTimeTableFragment();
+                                    tvTitle.setText(R.string.action_timetable);
                                     break;
                             }
 
@@ -193,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
 
         menus.add(new AppMenu(this, R.string.action_intro_text, R.string.action_intro_icon));
         menus.add(new AppMenu(this, R.string.action_subjects_text, R.string.action_subjects_icon));
+        menus.add(new AppMenu(this, R.string.action_timetable, R.string.action_timetable_icon));
         menus.add(new AppMenu(this, R.string.action_connect_rss, R.string.action_connect_icon));
         menus.add(new AppMenu("", "", AppMenus.MenuType.DIVIDER));
         menus.add(new AppMenu(this, R.string.action_sponsors, R.string.action_sponsors_icon));
@@ -236,6 +243,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fl_contents, new SponsorsFragment());
+        ft.commit();
+    }
+
+    private void createTimeTableFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fl_contents, new TimetableFragment());
         ft.commit();
     }
 }

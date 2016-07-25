@@ -12,4 +12,6 @@
     <string name="action_connect_icon">\uf17b</string>
     <string name="action_sponsors">حامیان</string>
     <string name="action_sponsors_icon">\uf4e7</string>
+    <string name="action_timetable">برنامه زمان‌بندی</string>
+    <string name="action_timetable_icon">\uf210</string>
 </resources>

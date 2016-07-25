@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cv_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:padding="15dp"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <ir.mbaas.mashhadconnect.views.MBTextView
+                android:id="@+id/tv_title"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textDirection="rtl"
+                android:gravity="right"
+                android:text="Title"/>
+
+            <ir.mbaas.mashhadconnect.views.MBTextView
+                android:id="@+id/tv_desc"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textDirection="rtl"
+                android:gravity="right" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/tv_desc"
+                android:id="@+id/civ_lecturer"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ir.mbaas.mashhadconnect.views.MBTextView
+                android:id="@+id/tv_lecturer"
+                android:layout_toLeftOf="@id/civ_lecturer"
+                android:layout_below="@id/tv_desc"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textDirection="rtl"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="right|center_vertical" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
