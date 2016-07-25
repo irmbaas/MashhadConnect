@@ -34,8 +34,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/tv_connect_text1"
             android:scaleType="centerInside"
-            android:adjustViewBounds="true"
-            android:src="@drawable/connect_poster" />
+            android:adjustViewBounds="true" />
 
         <ir.mbaas.mashhadconnect.views.MBTextView
             android:id="@+id/tv_connect_text2"

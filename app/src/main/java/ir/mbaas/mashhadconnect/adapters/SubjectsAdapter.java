@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -57,8 +59,14 @@ public class SubjectsAdapter extends RecyclerView.Adapter<SubjectsAdapter.Subjec
         holder.description.setText(Html.fromHtml(holder.itemView.getResources()
                 .getString(subject.description)));
         holder.lecturer.setText(subject.lecturer);
-        holder.poster.setImageResource(subject.image);
-        holder.lecturerImg.setImageResource(subject.lecturerImg);
+
+        Glide.with(holder.itemView.getContext())
+                .load(subject.lecturerImg)
+                .into(holder.lecturerImg);
+
+        Glide.with(holder.itemView.getContext())
+                .load(subject.image)
+                .into(holder.poster);
     }
 
     @Override

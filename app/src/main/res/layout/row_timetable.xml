@@ -30,7 +30,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textDirection="rtl"
                 android:gravity="right"
                 android:text="Title"/>
@@ -56,7 +56,7 @@
                 android:layout_marginRight="5dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:gravity="right|center_vertical"
-                android:text="dasds"/>
+                android:text=""/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

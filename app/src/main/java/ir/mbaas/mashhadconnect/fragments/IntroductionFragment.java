@@ -7,7 +7,10 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import ir.mbaas.mashhadconnect.R;
 
@@ -35,6 +38,12 @@ public class IntroductionFragment extends Fragment {
         TextView introTextPart2 = (TextView) view.findViewById(R.id.tv_connect_text2);
         introTextPart2.setText(Html.fromHtml(view.getResources()
                 .getString(R.string.connect_introduction_text2)));
+
+        ImageView ivPoster = (ImageView) view.findViewById(R.id.iv_poster);
+
+        Glide.with(this)
+                .load(R.drawable.connect_poster)
+                .into(ivPoster);
 
         return view;
     }

@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import ir.mbaas.mashhadconnect.R;
@@ -53,7 +55,10 @@ public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.Sponso
         holder.title.setText(sponsor.title);
         holder.description.setText(Html.fromHtml(holder.itemView.getResources()
                 .getString(sponsor.description)));
-        holder.logo.setImageResource(sponsor.logo);
+
+        Glide.with(holder.itemView.getContext())
+                .load(sponsor.logo)
+                .into(holder.logo);
     }
 
     @Override
